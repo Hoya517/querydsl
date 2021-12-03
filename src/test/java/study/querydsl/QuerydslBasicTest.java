@@ -268,7 +268,9 @@ public class QuerydslBasicTest {
         List<Tuple> result = queryFactory
                 .select(member, team)
                 .from(member)
-                .leftJoin(member.team, team).on(team.name.eq("teamA"))
+//                .join(member.team, team).on(team.name.eq("teamA"))
+                .join(member.team, team)
+                .where(team.name.eq("teamA"))
                 .fetch();
 
         for (Tuple tuple : result) {
