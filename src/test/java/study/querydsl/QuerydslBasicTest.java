@@ -685,4 +685,13 @@ public class QuerydslBasicTest {
                 .execute();
         System.out.println("count = " + count);
     }
+
+    @Test
+    public void delete() {
+        long count = queryFactory
+                .delete(member)
+                .where(member.age.gt(18))
+                .execute();
+        System.out.println("count = " + count);
+    }
 }
