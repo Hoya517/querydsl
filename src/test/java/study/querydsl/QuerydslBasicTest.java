@@ -655,7 +655,6 @@ public class QuerydslBasicTest {
     }
 
     @Test
-    @Commit
     public void bulkUpdate() {
 
         long count = queryFactory
@@ -676,5 +675,14 @@ public class QuerydslBasicTest {
         for (Member member1 : result) {
             System.out.println("member1 = " + member1);
         }
+    }
+
+    @Test
+    public void blukAdd() {
+        long count = queryFactory
+                .update(member)
+                .set(member.age, member.age.add(1))
+                .execute();
+        System.out.println("count = " + count);
     }
 }
