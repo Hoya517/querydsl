@@ -116,6 +116,7 @@ public class QuerydslBasicTest {
         //단 건
         Member fetchOne = queryFactory
                 .selectFrom(QMember.member)
+                .where(member.username.eq("member1"))
                 .fetchOne();
 
         //처음 한 건 조회
